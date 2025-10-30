@@ -9,8 +9,8 @@ export class Song extends Model<InferAttributes<Song>, InferCreationAttributes<S
   declare release_date: string;
   declare cover_url: string;
   declare duration: number;
-  declare audio_url: string
-
+  declare audio_url: number
+  // Init model
   static initModel(sequelize: Sequelize): typeof Song {
     Song.init(
       {
