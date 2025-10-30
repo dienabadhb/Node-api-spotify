@@ -8,14 +8,25 @@ describe('Artist model (sqlite::memory:)', () => {
     await models.sequelize.sync({ force: true, logging: false, alter: true });
   });
 
-  it('creates and fetches a Artist', async () => {
+  it('creates and fetches an Artist', async () => {
     // DB is synced in beforeEach
-    const created = await models.Artist.create({ name: 'Adam', bio: '', country: 'UK' });
+    const created = await models.Artist.create({
+      id: 123,
+      name: 'Bouss',
+      bio: 'represente',
+      country: 'Rap français',
+      album_id: 123,
+    });
     assert.ok(created.id > 0);
 
     const found = await models.Artist.findByPk(created.id);
     assert.ok(found);
-    assert.equal(found!.name, 'Adam');
+    assert.equal(found!.id,123);
+    assert.equal(found!.name, 'Bouss');
+    assert.equal(found!.bio, 'represente');
+    assert.equal(found!.country, 'Rap français');
+    assert.equal(found!.album_id, 123);
+
   });
 
   // it('updates and deletes a user', async () => {
@@ -40,3 +51,4 @@ describe('Artist model (sqlite::memory:)', () => {
   //   assert.equal(count, 0);
   // });
 });
+
