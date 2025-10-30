@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {  
   "compilerOptions": {
     "module": "commonjs",
@@ -49,4 +50,17 @@
     "src/**/*.test.ts",
     "src/*/tests/**/*.test.ts"
   ]  
+=======
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2016",
+    "rootDir": "./src",
+    "outDir":"./dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+
+  }
+>>>>>>> Stashed changes
 }
