@@ -1,5 +1,4 @@
 import { CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, Sequelize } from 'sequelize';
-
 export class Song extends Model<InferAttributes<Song>, InferCreationAttributes<Song>> {
   declare id: CreationOptional<number>;
   declare artist_id: string;
@@ -9,7 +8,7 @@ export class Song extends Model<InferAttributes<Song>, InferCreationAttributes<S
   declare release_date: string;
   declare cover_url: string;
   declare duration: number;
-  declare audio_url: number
+  declare audio_url: string;
   // Init model
   static initModel(sequelize: Sequelize): typeof Song {
     Song.init(
@@ -25,7 +24,7 @@ export class Song extends Model<InferAttributes<Song>, InferCreationAttributes<S
         audio_url: { type: DataTypes.STRING, allowNull: false },
 
       },
-      { sequelize, tableName: 'Song', modelName: `Song`, timestamps: true }
+      { sequelize, tableName: 'Song', modelName: 'Song', timestamps: true }
     );
     return Song;
   }
