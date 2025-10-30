@@ -1,5 +1,4 @@
 {
-<<<<<<< Updated upstream
   "name": "wsf-4ieme",
   "version": "1.0.0",
   "description": "",
@@ -12,19 +11,10 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "test": "mocha -r ts-node/register --extension ts --recursive --no-silent --no-warnings --timeout 200000 --exit --max-old-space-size=4096 test/**/*.test.ts"
-=======
-  "name": "node-api-spotify",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
->>>>>>> Stashed changes
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-<<<<<<< Updated upstream
   "devDependencies": {
     "@types/chai": "^5.2.2",
     "@types/express": "^5.0.3",
@@ -49,15 +39,5 @@
     "express": "^5.1.0",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7"
-=======
-  "dependencies": {
-    "express": "^5.1.0"
-  },
-  "devDependencies": {
-    "@types/express": "^5.0.3",
-    "@types/node": "^24.6.0",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
->>>>>>> Stashed changes
   }
 }
