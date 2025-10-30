@@ -9,7 +9,7 @@ export class Song extends Model<InferAttributes<Song>, InferCreationAttributes<S
   declare release_date: string;
   declare cover_url: string;
   declare duration: number;
-  declare audio_url: number
+  declare audio_url: string
 
   static initModel(sequelize: Sequelize): typeof Song {
     Song.init(
@@ -22,7 +22,7 @@ export class Song extends Model<InferAttributes<Song>, InferCreationAttributes<S
         release_date: { type: DataTypes.STRING(50), allowNull: false },
         cover_url: { type: DataTypes.TEXT, allowNull: false },
         duration: { type: DataTypes.INTEGER, allowNull: false },
-        audio_url: { type: DataTypes.INTEGER, allowNull: false },
+        audio_url: { type: DataTypes.STRING, allowNull: false },
 
       },
       { sequelize, tableName: 'Song', modelName: `Song`, timestamps: true }

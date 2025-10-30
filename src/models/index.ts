@@ -7,6 +7,7 @@ import { Playlists } from './playlists';
 import { Playlists_song} from './playlists_song';
 import { Listening_history } from './listening_history';
 import { Favorites } from './favorites';
+import { Song } from './song';
 
 
 
@@ -20,6 +21,7 @@ export interface Database {
     Playlists_song: typeof Playlists_song;
     Listening_history: typeof Listening_history;
     Favorites: typeof Favorites;
+    Song: typeof Song;
    
   };
 }
@@ -54,6 +56,7 @@ export function createDatabase(opts: DbOptions = {}): Database {
   Album.initModel(sequelize);
   Listening_history.initModel(sequelize);
   Favorites.initModel(sequelize);
+  Song.initModel(sequelize);
 
   //  Associations (relations)
   Playlists_song.associate?.();
@@ -61,11 +64,11 @@ export function createDatabase(opts: DbOptions = {}): Database {
 
   return {
     sequelize,
-    models: { User, Artist, Album, Playlists,Playlists_song, Listening_history, Favorites},
+    models: { User, Artist, Album, Playlists,Playlists_song, Song, Listening_history, Favorites},
   };
 }
 
-export type { User, Artist, Album, Playlists, Playlists_song,Listening_history, Favorites };
+export type { User, Artist, Album, Playlists, Playlists_song, Song, Listening_history, Favorites };
 
 // Default database instance
 // - Uses in-memory SQLite under test to keep tests isolated and fast

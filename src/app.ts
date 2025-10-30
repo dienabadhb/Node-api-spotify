@@ -22,9 +22,9 @@ app.get('/', (_: Request, res: Response) => {
   res.send('Hello, TypeScript + Express!');
 });
 
-app.post('/animals', async (req: Request, res: Response) => {
-  console.info('Received animal creation request:', req.body);
-  const created = await models.Animal.create(req.body);
+app.post('/song', async (req: Request, res: Response) => {
+  console.info('Received artist creation request:', req.body);
+  const created = await models.Song.create(req.body);
   res.status(201).json({ created });
 });
 
