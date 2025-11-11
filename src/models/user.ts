@@ -11,22 +11,49 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
   static initModel(sequelize: Sequelize): typeof User {
     User.init(
       {
-        id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true,},
-        name: {type: DataTypes.STRING(120), allowNull: false,},
-        surname: {type: DataTypes.STRING(120), allowNull: false,},
-        pseudo: {type: DataTypes.STRING(120), allowNull: false,},
-        email: {type: DataTypes.STRING(255), allowNull: true, unique: true,validate: {isEmail: true,},},
-        password: {type : DataTypes.STRING(120), allowNull: true, unique: true,validate: {isEmail: true,},},
-        /*account_type : {
+        id: {
+          type: DataTypes.INTEGER,
+          primaryKey: true,
+          autoIncrement: true,
+        },
+        name: {
+          type: DataTypes.STRING(120),
+          allowNull: false,
+        },
+        surname: {
+          type: DataTypes.STRING(120),
+          allowNull: false,
+        },
+        pseudo: {
+          type: DataTypes.STRING(120),
+          allowNull: false,
+        },
+        email: {
+          type: DataTypes.STRING(255),
+          allowNull: true,
+          unique: true,
+          validate: {
+            isEmail: true, // ✅ valide seulement les emails
+          },
+        },
+        password: {
+          type: DataTypes.STRING(120),
+          allowNull: true,
+          unique: true,
+          validate: {
+            len: [6, 120], // ✅ longueur minimale/maximale du mot de passe
+          },
+        },
+        /*
+        account_type : {
             type : DataTypes.STRING(120),
             allowNull: true,
         },
         created_at : {
             type : DataTypes.STRING(120),
             allowNull: true,
-        },*/
-
-
+        },
+        */
       },
       {
         sequelize,
@@ -35,6 +62,7 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
         timestamps: true,
       }
     );
+
     return User;
   }
 }

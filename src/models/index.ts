@@ -58,9 +58,6 @@ export function createDatabase(opts: DbOptions = {}): Database {
   Favorites.initModel(sequelize);
   Song.initModel(sequelize);
 
-  //  Associations (relations)
-  Playlists_song.associate?.();
-  Favorites.associate?.();
 
   return {
     sequelize,

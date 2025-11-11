@@ -3,37 +3,29 @@ import models from '../src/models';
 
 // Use the default DB (in-memory under NODE_ENV=test)
 
-describe('Artist model (sqlite::memory:)', () => {
+describe('Artiste model (sqlite::memory:)', () => {
   beforeEach(async () => {
     await models.sequelize.sync({ force: true, logging: false, alter: true });
   });
 
   it('creates and fetches a Song', async () => {
     // DB is synced in beforeEach
-    const created = await models.Song.create({
-      artist_id: 123,
-      album_id: 123,
-      title: 'Biff pas d\'love',
-      genre: 'Rap français',
-      release_date: '30-05-2025',
-      cover_url: 'https://i.scdn.co/image/ab67616d00001e02d095d0a1566f379723c5ec3b',
-      duration: 154,
-      audio_url: 'https://open.spotify.com/intl-fr/track/4R0HXKZBeDJerIq9oCnDIp?si=dd5f066e4f574efc'
+    const created = await models.Playlists.create({
+      created_at: new Date('2004-10-21'),
+      user_id: 78638,
+      name: 'Hits du Moment',
+      description: 'Rap français',
     });
     assert.ok(created.id > 0);
 
-    const found = await models.Song.findByPk(created.id);
+    const found = await models.Playlists.findByPk(created.id);
     assert.ok(found);
-    assert.equal(found!.artist_id, 123);
-    assert.equal(found!.album_id, 123);
-    assert.equal(found!.title, 'Biff pas d\'love');
-    assert.equal(found!.genre, 'Rap français');
-    assert.equal(found!.release_date, '30-05-2025');
-    assert.equal(found!.cover_url, 'https://i.scdn.co/image/ab67616d00001e02d095d0a1566f379723c5ec3b');
-    assert.equal(found!.duration, 154);
-    assert.equal(found!.audio_url, 'https://open.spotify.com/intl-fr/track/4R0HXKZBeDJerIq9oCnDIp?si=dd5f066e4f574efc');
+    assert.equal(found!.name, 'Hits du Moment');
+    assert.equal(found!.description,'Rap français');
+    assert.equal(found!.name, 'Hits du Moment');
 
   });
+
   // it('updates and deletes a user', async () => {
   //   // DB is synced in beforeEach
 
