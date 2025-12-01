@@ -1,7 +1,7 @@
 import { Model, DataTypes, Sequelize, InferAttributes, InferCreationAttributes, CreationOptional } from 'sequelize';
 
 export class Playlists extends Model<InferAttributes<Playlists>, InferCreationAttributes<Playlists>> {
-  declare playlist_id: CreationOptional<number>;
+  declare id: CreationOptional<number>;
   declare user_id: number;
   declare name: string;
   declare description: string;
@@ -10,7 +10,7 @@ export class Playlists extends Model<InferAttributes<Playlists>, InferCreationAt
   static initModel(sequelize: Sequelize): typeof Playlists {
     Playlists.init(
       {
-        playlist_id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+        id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
         user_id: { type: DataTypes.INTEGER, allowNull: false },
         name: { type: DataTypes.STRING(100), allowNull: false },
         description: { type: DataTypes.TEXT, allowNull: true },
