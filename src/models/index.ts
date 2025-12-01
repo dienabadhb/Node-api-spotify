@@ -11,6 +11,7 @@ import { Song } from './song';
 
 
 
+
 export interface Database {
   sequelize: Sequelize;
   models: {
@@ -22,6 +23,7 @@ export interface Database {
     Listening_history: typeof Listening_history;
     Favorites: typeof Favorites;
     Song: typeof Song;
+
    
   };
 }
