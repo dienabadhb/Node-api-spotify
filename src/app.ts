@@ -1,15 +1,20 @@
-
-
 import express, { Application, Request, Response } from 'express';
 import models from './models';
+import {emailRoute} from "./routes/email.routes"; // ← import
 
 export const app: Application = express();
 const PORT: number = 3005;
 
-// Parse JSON bodies
 app.use(express.json());
 
-// Initialize SQLite + Sequelize and sync models
+import newsletterRoute from "./routes/newsletter.routes";
+app.use("/api/newsletter", newsletterRoute);
+
+
+// Monte la route email
+app.use("/api/email", emailRoute);
+
+// Initialize SQLite + Sequelize
 const inTest = process.env.NODE_ENV === 'test';
 const { sequelize } = models;
 sequelize.sync().then(() => {
@@ -34,4 +39,7 @@ if (!inTest) {
     console.log(`Server running at http://localhost:${PORT}`);
   });
 }
+
+
+
 

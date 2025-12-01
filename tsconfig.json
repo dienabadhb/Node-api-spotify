@@ -37,7 +37,7 @@
     "src/*/",
     "lib/*.ts",
     "bin/*.ts"
-  ],
+, "test/newsletter.test.ts"  ],
   "exclude": [
     "node_modules/@faker-js/faker/dist/airline-BUL6NtOJ.d.ts",
     "@faker-js",

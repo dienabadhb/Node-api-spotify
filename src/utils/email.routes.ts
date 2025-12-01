@@ -1,6 +1,8 @@
 // src/routes/email.routes.ts
 import { Router } from "express";
 import nodemailer from "nodemailer";
+// Remplace "export const router = ..." par :
+
 
 const router = Router();
 
