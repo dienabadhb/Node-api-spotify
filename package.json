@@ -17,9 +17,12 @@
   "license": "ISC",
   "devDependencies": {
     "@types/chai": "^5.2.2",
+    "@types/dotenv": "^6.1.1",
     "@types/express": "^5.0.3",
+    "@types/jest": "^30.0.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "^24.6.0",
+    "@types/nodemailer": "^6.4.21",
     "@types/sinon": "^17.0.4",
     "@types/supertest": "^6.0.3",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
@@ -38,6 +41,8 @@
     "axios": "^1.12.2",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "mailtrap": "^4.3.2",
+    "nodemailer": "^6.10.1",
     "sequelize": "^6.37.7",
     "sqlite3": "^5.1.7",
     "stripe": "^19.3.1"
